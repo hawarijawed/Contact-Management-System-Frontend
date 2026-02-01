@@ -3,7 +3,7 @@ import ContactSidebar from '../components/ContactSidebar';
 import { Menu, X } from 'lucide-react';
 
 const Layout = ({ children }) => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(true);
 
     return (
         <div className="flex h-screen bg-gray-50 overflow-hidden">
