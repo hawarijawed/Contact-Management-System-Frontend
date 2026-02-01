@@ -1,36 +1,43 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-import Layout from './layouts/Layout';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddContact from './pages/AddContact';
-import './index.css';
+import ListContact from './pages/ListContact';
 import SideBar from './components/SideBar';
 import Navbar from './components/Navbar';
-import ListContact from './pages/ListContact';
-import { ToastContainer, toast } from 'react-toastify';
-
-// Wrapper to apply Layout to all child routes
-const LayoutWrapper = () => (
-  <Layout>
-    <Outlet />
-  </Layout>
-);
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SearchContact from './pages/SearchContact';
 
 function App() {
-  return (
-    <div className='flex items-start min-h-screen'>
-      <ToastContainer />
-      <SideBar />
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-      <div className='flex-1 h-screen overflow-y-scroll bg-[#f3fff7]'>
-        <Navbar />
-        <div className='pt-8 pl-5 sm:pl-12'>
-          <Routes>
-            <Route path='/add-contact' element={<AddContact/>} />
-            <Route path='/list-contact' element={<ListContact/>} />
-          </Routes>
+  // Toggle sidebar for mobile
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
+  return (
+      <div className="flex min-h-screen bg-[#f3fff7]">
+        {/* Sidebar */}
+        <SideBar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+
+        {/* Main content */}
+        <div className="flex-1 flex flex-col min-h-screen sm:ml-0 ">
+          {/* Navbar */}
+          <Navbar toggleSidebar={toggleSidebar} />
+
+          {/* Page content */}
+          <div className="flex-1 p-5 sm:p-8 overflow-y-auto">
+            <Routes>
+              <Route path="/add-contact" element={<AddContact />} />
+              <Route path="/list-contact" element={<ListContact />} />
+              <Route path="/update-contact" element={<AddContact />} /> {/* Example */}
+              <Route path='/search-contact' element={<SearchContact />} />
+            </Routes>
+          </div>
         </div>
+
+        {/* Toast container */}
+        <ToastContainer />
       </div>
-    </div>
   );
 }
 
