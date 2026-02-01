@@ -24,7 +24,16 @@ const ContactService = {
     },
 
     // Delete contact
-    remove: (id) => api.delete(`/contact/delete/${id}`),
+    remove: async (id) => {
+        try {
+            const res = await api.delete(`/contact/delete/${id}`);
+            console.log('Contact deleted:', res.data);
+            return res.data;
+        } catch (error) {
+            console.error('Error deleting contact:', error);
+            throw error;
+        }
+    },
 
     // Search contacts
     search: async (query) => {
