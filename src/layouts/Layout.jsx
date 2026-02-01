@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ContactSidebar from '../components/ContactSidebar';
+// import ContactSidebar from '../components/ContactSidebar';
 import { Menu, X } from 'lucide-react';
 
 const Layout = ({ children }) => {
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
         fixed inset-y-0 left-0 z-40 w-80 bg-white transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 border-r border-gray-200
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-                <ContactSidebar />
+                {/* <ContactSidebar /> */}
             </aside>
 
             {/* Overlay for mobile when sidebar is open */}

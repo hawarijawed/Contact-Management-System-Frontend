@@ -2,10 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import Layout from './layouts/Layout';
 import AddContact from './pages/AddContact';
-import EditContact from './pages/EditContact';
-import ContactDetail from './pages/ContactDetail';
-import EmptyState from './pages/EmptyState';
 import './index.css';
+import SideBar from './components/SideBar';
+import Navbar from './components/Navbar';
+import ListContact from './pages/ListContact';
+import { ToastContainer, toast } from 'react-toastify';
 
 // Wrapper to apply Layout to all child routes
 const LayoutWrapper = () => (
@@ -16,16 +17,20 @@ const LayoutWrapper = () => (
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LayoutWrapper />}>
-          <Route index element={<EmptyState />} />
-          <Route path="contact/:id" element={<ContactDetail />} />
-          <Route path="add" element={<AddContact />} />
-          <Route path="edit/:id" element={<EditContact />} />
-        </Route>
-      </Routes>
-    </Router>
+    <div className='flex items-start min-h-screen'>
+      <ToastContainer />
+      <SideBar />
+
+      <div className='flex-1 h-screen overflow-y-scroll bg-[#f3fff7]'>
+        <Navbar />
+        <div className='pt-8 pl-5 sm:pl-12'>
+          <Routes>
+            <Route path='/add-contact' element={<AddContact/>} />
+            <Route path='/list-contact' element={<ListContact/>} />
+          </Routes>
+        </div>
+      </div>
+    </div>
   );
 }
 
