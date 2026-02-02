@@ -1,16 +1,66 @@
-# React + Vite
+# Contact Management System Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive Contact Management System frontend built with React, Vite, and Tailwind CSS. This application allows users to manage their contacts efficiently with a clean and user-friendly interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Add Contact**: Create new contacts with ease.
+- **List Contacts**: View all your contact details in a structured list.
+- **Update Contact**: Edit existing contact information.
+- **Search Contact**: (In Progress) Quickly find contacts by name or details.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Routing**: [React Router DOM](https://reactrouter.com/)
+- **HTTP Client**: [Axios](https://axios-http.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Notifications**: [React Toastify](https://fkhadra.github.io/react-toastify/)
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── components/      # Reusable UI components (Navbar, SideBar, Button)
+├── layouts/         # Layout components
+├── pages/           # Application pages (AddContact, ListContact, SearchContact)
+├── services/        # API services (contactService.js)
+├── assets/          # Static assets
+└── App.jsx          # Main application component and routing
+```
+
+## Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd cms_frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+## Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+## Linting
+
+To run the linter:
+
+```bash
+npm run lint
+```
