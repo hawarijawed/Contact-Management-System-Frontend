@@ -7,7 +7,7 @@ A modern, responsive Contact Management System frontend built with React, Vite, 
 - **Add Contact**: Create new contacts with ease.
 - **List Contacts**: View all your contact details in a structured list.
 - **Update Contact**: Edit existing contact information.
-- **Search Contact**: (In Progress) Quickly find contacts by name or details.
+- **Search Contact**: Quickly find contacts by name or details.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 
 ## Tech Stack
